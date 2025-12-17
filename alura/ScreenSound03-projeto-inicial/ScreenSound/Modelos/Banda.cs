@@ -18,7 +18,7 @@ internal class Banda
             {
                 return 0;
             }
-            else return notas.Average(x => x.Nota);
+            else return notas.Average(x => x.Nota); // pra cada avaliacao na lista de notas, pegue a nota e calcule a média;
         }
     }
     public List<Album> Albuns => albuns;
