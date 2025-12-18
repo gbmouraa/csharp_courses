@@ -4,9 +4,11 @@ namespace ScreenSound.Menus;
 
 internal class MenuAvaliarBanda : Menu
 {
-    public void Executar(Dictionary<string, Banda> bandasRegistradas)
+    // override para sobrescrever o método Executar no Menu (pai)
+    public override void Executar(Dictionary<string, Banda> bandasRegistradas)
     {
-        Console.Clear();
+        // indica que é pra executar o que está em Executar da classe Menu
+        base.Executar(bandasRegistradas);
         ExibirTituloDaOpcao("Avaliar Banda");
 
         Console.Write("Digite o nome da banda que deseja avaliar: ");
@@ -31,11 +33,6 @@ internal class MenuAvaliarBanda : Menu
             Console.WriteLine("Digite uma tecla para voltar ao menu principal");
             Console.ReadKey();
             Console.Clear();
-        }
-
-        if (1 > 0)
-        {
-            System.Console.WriteLine("Hello");
         }
     }
 }
