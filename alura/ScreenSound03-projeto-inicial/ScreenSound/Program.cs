@@ -1,5 +1,5 @@
-﻿using ScreenSound.Modelos;
-using ScreenSound.Menus;
+﻿using ScreenSound.Menus;
+using ScreenSound.Modelos;
 
 Banda Slipknot = new("Slipknot");
 Banda LinkinPark = new("Linkin Park");
@@ -14,7 +14,8 @@ bandasRegistradas.Add(LinkinPark.Nome, LinkinPark);
 
 void ExibirLogo()
 {
-    Console.WriteLine(@"
+    Console.WriteLine(
+        @"
 
 ░██████╗░█████╗░██████╗░███████╗███████╗███╗░░██╗  ░██████╗░█████╗░██╗░░░██╗███╗░░██╗██████╗░
 ██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝████╗░██║  ██╔════╝██╔══██╗██║░░░██║████╗░██║██╔══██╗
@@ -22,7 +23,8 @@ void ExibirLogo()
 ░╚═══██╗██║░░██╗██╔══██╗██╔══╝░░██╔══╝░░██║╚████║  ░╚═══██╗██║░░██║██║░░░██║██║╚████║██║░░██║
 ██████╔╝╚█████╔╝██║░░██║███████╗███████╗██║░╚███║  ██████╔╝╚█████╔╝╚██████╔╝██║░╚███║██████╔╝
 ╚═════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░╚══╝  ╚═════╝░░╚════╝░░╚═════╝░╚═╝░░╚══╝╚═════╝░
-");
+"
+    );
     Console.WriteLine("Boas vindas ao Screen Sound 2.0!");
 }
 
@@ -135,7 +137,6 @@ void MostrarBandasRegistradas()
     Console.ReadKey();
     Console.Clear();
     ExibirOpcoesDoMenu();
-
 }
 
 void AvaliarUmaBanda()
@@ -152,7 +153,9 @@ void AvaliarUmaBanda()
 
         Avaliacao nota = Avaliacao.Parse(Console.ReadLine()!); // Avaliação.Parse retorna uma Avaliacao recebendo nota
         banda.AdicionarNota(nota); // aponta para bandasRegistradas[nomeDaBanda]
-        Console.WriteLine($"\nA nota {nota.Nota} foi registrada com sucesso para a banda {nomeDaBanda}");
+        Console.WriteLine(
+            $"\nA nota {nota.Nota} foi registrada com sucesso para a banda {nomeDaBanda}"
+        );
         Thread.Sleep(2000);
         Console.Clear();
         ExibirOpcoesDoMenu();
@@ -166,6 +169,10 @@ void AvaliarUmaBanda()
         ExibirOpcoesDoMenu();
     }
 
+    if (1 > 0)
+    {
+        System.Console.WriteLine("Hello");
+    }
 }
 
 ExibirOpcoesDoMenu();
