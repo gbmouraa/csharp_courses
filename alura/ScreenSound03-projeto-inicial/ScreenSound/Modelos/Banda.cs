@@ -21,7 +21,7 @@ internal class Banda : IAvaliavel
             else return notas.Average(x => x.Nota); // pra cada avaliacao na lista de notas, pegue a nota e calcule a média;
         }
     }
-    public List<Album> Albuns => albuns;
+    public IEnumerable<Album> Albuns => albuns;
 
     public void AdicionarAlbum(Album album) 
     { 

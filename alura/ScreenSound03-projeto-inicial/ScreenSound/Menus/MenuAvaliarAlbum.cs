@@ -5,6 +5,7 @@ internal class MenuAvaliarAlbum : Menu
 {
     public override void Executar(Dictionary<string, Banda> bandasRegistradas)
     {
+        // chama o método Executar da classe pai (Menu) - sem base chama o próprio método
         base.Executar(bandasRegistradas);
 
         ExibirTituloDaOpcao("Avaliar álbum");

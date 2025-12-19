@@ -3,6 +3,10 @@ using ScreenSound.Modelos;
 
 Banda Slipknot = new("Slipknot");
 Banda LinkinPark = new("Linkin Park");
+Banda Ira = new("Ira");
+
+Ira.AdicionarNota(new Avaliacao(5));
+Ira.AdicionarNota(new Avaliacao(7));
 
 Slipknot.AdicionarNota(new Avaliacao(8));
 Slipknot.AdicionarNota(new Avaliacao(10));
@@ -11,6 +15,7 @@ Slipknot.AdicionarNota(new Avaliacao(10));
 Dictionary<string, Banda> bandasRegistradas = new Dictionary<string, Banda>();
 bandasRegistradas.Add(Slipknot.Nome, Slipknot);
 bandasRegistradas.Add(LinkinPark.Nome, LinkinPark);
+bandasRegistradas.Add(Ira.Nome, Ira); 
 
 Dictionary<int, Menu> opcoes = new Dictionary<int, Menu>();
 opcoes.Add(1, new MenuRegistrarBanda());
@@ -54,14 +59,21 @@ void ExibirOpcoesDoMenu()
 
     if (opcoes.ContainsKey(opcaoEscolhidaNumerica))
     {
-        Menu menuASerExibido = opcoes[opcaoEscolhidaNumerica]; // é possível usar MenuAavaliarBanda porque faz parte da hierarquia de Menu
-        menuASerExibido.Executar(bandasRegistradas);
+        Menu menuASerExibido = opcoes[opcaoEscolhidaNumerica];
+        if (opcaoEscolhidaNumerica == -1)
+        {
+        menuASerExibido.Sair();
+        }
+        else
+        {
+            menuASerExibido.Executar(bandasRegistradas);
+        }
 
         if (opcaoEscolhidaNumerica > 0) ExibirOpcoesDoMenu();
     }
     else
     {
-        Console.WriteLine("Opçãao inválida");
+        Console.WriteLine("Opção inválida");
     }
 }
 
