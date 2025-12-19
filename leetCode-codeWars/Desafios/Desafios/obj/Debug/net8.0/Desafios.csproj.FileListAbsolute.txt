@@ -1,0 +1,15 @@
+C:\Users\gabriel.reis\source\Projetos-pessoais\leetCode-codeWars\Desafios\Desafios\bin\Debug\net8.0\Desafios.exe
+C:\Users\gabriel.reis\source\Projetos-pessoais\leetCode-codeWars\Desafios\Desafios\bin\Debug\net8.0\Desafios.deps.json
+C:\Users\gabriel.reis\source\Projetos-pessoais\leetCode-codeWars\Desafios\Desafios\bin\Debug\net8.0\Desafios.runtimeconfig.json
+C:\Users\gabriel.reis\source\Projetos-pessoais\leetCode-codeWars\Desafios\Desafios\bin\Debug\net8.0\Desafios.dll
+C:\Users\gabriel.reis\source\Projetos-pessoais\leetCode-codeWars\Desafios\Desafios\bin\Debug\net8.0\Desafios.pdb
+C:\Users\gabriel.reis\source\Projetos-pessoais\leetCode-codeWars\Desafios\Desafios\obj\Debug\net8.0\Desafios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gabriel.reis\source\Projetos-pessoais\leetCode-codeWars\Desafios\Desafios\obj\Debug\net8.0\Desafios.AssemblyInfoInputs.cache
+C:\Users\gabriel.reis\source\Projetos-pessoais\leetCode-codeWars\Desafios\Desafios\obj\Debug\net8.0\Desafios.AssemblyInfo.cs
+C:\Users\gabriel.reis\source\Projetos-pessoais\leetCode-codeWars\Desafios\Desafios\obj\Debug\net8.0\Desafios.csproj.CoreCompileInputs.cache
+C:\Users\gabriel.reis\source\Projetos-pessoais\leetCode-codeWars\Desafios\Desafios\obj\Debug\net8.0\Desafios.sourcelink.json
+C:\Users\gabriel.reis\source\Projetos-pessoais\leetCode-codeWars\Desafios\Desafios\obj\Debug\net8.0\Desafios.dll
+C:\Users\gabriel.reis\source\Projetos-pessoais\leetCode-codeWars\Desafios\Desafios\obj\Debug\net8.0\refint\Desafios.dll
+C:\Users\gabriel.reis\source\Projetos-pessoais\leetCode-codeWars\Desafios\Desafios\obj\Debug\net8.0\Desafios.pdb
+C:\Users\gabriel.reis\source\Projetos-pessoais\leetCode-codeWars\Desafios\Desafios\obj\Debug\net8.0\Desafios.genruntimeconfig.cache
+C:\Users\gabriel.reis\source\Projetos-pessoais\leetCode-codeWars\Desafios\Desafios\obj\Debug\net8.0\ref\Desafios.dll
