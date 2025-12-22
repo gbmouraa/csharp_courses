@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\estudos-dotnet\\calculadora\\Calculadora\\Calculadora\\Calculadora.csproj",
+      "projectUniqueName": "C:\\csharp-cousers\\csharp_courses\\alura\\calculadora\\Calculadora\\Calculadora\\Calculadora.csproj",
       "projectName": "Calculadora",
-      "projectPath": "C:\\estudos-dotnet\\calculadora\\Calculadora\\Calculadora\\Calculadora.csproj",
+      "projectPath": "C:\\csharp-cousers\\csharp_courses\\alura\\calculadora\\Calculadora\\Calculadora\\Calculadora.csproj",
       "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-      "outputPath": "C:\\estudos-dotnet\\calculadora\\Calculadora\\Calculadora\\obj\\",
+      "outputPath": "C:\\csharp-cousers\\csharp_courses\\alura\\calculadora\\Calculadora\\Calculadora\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

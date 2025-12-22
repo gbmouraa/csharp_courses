@@ -25,7 +25,6 @@ internal class CodeWars
 
         return string.Join(" ", splitedStrings);
     }
-
     public static string[] dirReduc(String[] arr) // Directions Reduction - não passa  em todos testes ainda*
     {
 
@@ -59,5 +58,25 @@ internal class CodeWars
         if (filteredXAndY.Count == 1) return [filteredXAndY.ElementAt(0).Key];
 
         return [filteredXAndY.MaxBy(x => x.Value).Key];
+    }
+
+    public static string GetReadableTime(int seconds)
+    {
+        int h = 0, m = 0;
+        int s = seconds % 60;
+
+        if (seconds >= 3600)
+        {
+            h = seconds / 3600;
+            m = seconds % 3600 / 60;
+        }
+        else if (seconds >= 60)
+        {
+            m = seconds / 60;
+        }
+
+        return $"{(h < 10 ? "0" + h : h)}:" +
+            $"{(m < 10 ? "0" + m : m)}:" + 
+            $"{(s < 10 ? "0" + s : s)}";
     }
 }
