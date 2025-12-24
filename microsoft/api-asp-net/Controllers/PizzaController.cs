@@ -21,6 +21,8 @@ public class PizzaController : ControllerBase
     public ActionResult<Pizza> Get(int id)
     {
         var pizza = PizzaService.Get(id);
+        var teste = "das";
+
         if (pizza == null)
         {
             return NotFound();

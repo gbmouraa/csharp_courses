@@ -447,23 +447,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gabri\\.nuget\\packages\\": {},
+    "C:\\Users\\gabriel.reis\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\csharp-cousers\\csharp_courses\\microsoft\\api-asp-net\\api-asp-net.csproj",
+      "projectUniqueName": "C:\\Users\\gabriel.reis\\source\\Projetos-pessoais\\microsoft\\api-asp-net\\api-asp-net.csproj",
       "projectName": "api-asp-net",
-      "projectPath": "C:\\csharp-cousers\\csharp_courses\\microsoft\\api-asp-net\\api-asp-net.csproj",
-      "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-      "outputPath": "C:\\csharp-cousers\\csharp_courses\\microsoft\\api-asp-net\\obj\\",
+      "projectPath": "C:\\Users\\gabriel.reis\\source\\Projetos-pessoais\\microsoft\\api-asp-net\\api-asp-net.csproj",
+      "packagesPath": "C:\\Users\\gabriel.reis\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gabriel.reis\\source\\Projetos-pessoais\\microsoft\\api-asp-net\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gabriel.reis\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -472,6 +472,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "http://rumo.nugetserver/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

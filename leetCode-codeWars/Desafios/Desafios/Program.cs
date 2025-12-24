@@ -1,10 +1,7 @@
 ﻿using Desafios;
+using System.IO;
 
-Console.WriteLine(CodeWars.GetReadableTime(0));
-Console.WriteLine(CodeWars.GetReadableTime(59));
-Console.WriteLine(CodeWars.GetReadableTime(60));
-Console.WriteLine(CodeWars.GetReadableTime(3599));
-Console.WriteLine(CodeWars.GetReadableTime(3600));
-Console.WriteLine(CodeWars.GetReadableTime(45296));
-Console.WriteLine(CodeWars.GetReadableTime(86400));
-Console.WriteLine(CodeWars.GetReadableTime(359999));
+//Console.WriteLine(CodeWars.FisrtNonRepeatingLetter("stress"));
+//Console.WriteLine(CodeWars.FisrtNonRepeatingLetter("a"));
+Console.WriteLine(CodeWars.FisrtNonRepeatingLetter("moonmen"));
+//Console.WriteLine(CodeWars.FisrtNonRepeatingLetter("sTreSS"));

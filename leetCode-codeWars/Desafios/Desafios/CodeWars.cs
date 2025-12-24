@@ -59,7 +59,6 @@ internal class CodeWars
 
         return [filteredXAndY.MaxBy(x => x.Value).Key];
     }
-
     public static string GetReadableTime(int seconds)
     {
         int h = 0, m = 0;
@@ -76,7 +75,69 @@ internal class CodeWars
         }
 
         return $"{(h < 10 ? "0" + h : h)}:" +
-            $"{(m < 10 ? "0" + m : m)}:" + 
+            $"{(m < 10 ? "0" + m : m)}:" +
             $"{(s < 10 ? "0" + s : s)}";
+    }
+    public static string DuplicateEncode(string word) // Duplicate Encoder
+    {
+        var wordArr = word.ToLower().ToCharArray();
+
+        Dictionary<char, bool> charRepeat = new Dictionary<char, bool>();
+
+        for (int i = 0; i < wordArr.Length; i++)
+        {
+            if (charRepeat.ContainsKey(wordArr[i]))
+            {
+                charRepeat[wordArr[i]] = true;
+            }
+            else
+            {
+                charRepeat[wordArr[i]] = false;
+            }
+        }
+
+
+        for (int i = 0; i < wordArr.Length; i++)
+        {
+            if (charRepeat[wordArr[i]] == true)
+            {
+                wordArr[i] = ')';
+            }
+            else wordArr[i] = '(';
+
+        }
+
+
+        return string.Join("", wordArr);
+    }
+
+    public static string FisrtNonRepeatingLetter(string s) // First non-repeating character
+    {
+        if (s.Length == 1) return s;
+
+        char[] charArr = s.ToCharArray();
+        char[] charArr2 = s.ToLower().ToCharArray();
+
+        Dictionary<char, int> charCount = new Dictionary<char, int>();
+
+        foreach (char c in charArr2)
+        {
+            if (charCount.ContainsKey(c)) charCount[c]++;
+            else charCount[c] = 0;
+        }
+
+        char first = charCount.FirstOrDefault(x => x.Value == 0).Key;
+        var firstIndex = Array.IndexOf(charArr2,first);
+
+        if (firstIndex == -1) return "";
+
+        return s.Substring(firstIndex,1);
+    }
+
+    public static int[,] Multiplication(int size)
+    {
+        int[,] matriz = new int[size, size];
+
+        return;
     }
 }
