@@ -5,10 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{37BCE5AB-A289-4AF2-9281-F3D01369D458}|Desafios\\Desafios.csproj|c:\\users\\gabriel.reis\\source\\projetos-pessoais\\leetcode-codewars\\desafios\\desafios\\codewars.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{37BCE5AB-A289-4AF2-9281-F3D01369D458}|Desafios\\Desafios.csproj|solutionrelative:desafios\\codewars.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{37BCE5AB-A289-4AF2-9281-F3D01369D458}|Desafios\\Desafios.csproj|c:\\users\\gabriel.reis\\source\\projetos-pessoais\\leetcode-codewars\\desafios\\desafios\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37BCE5AB-A289-4AF2-9281-F3D01369D458}|Desafios\\Desafios.csproj|solutionrelative:desafios\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,28 +24,9 @@
               "RelativeDocumentMoniker": "Desafios\\CodeWars.cs",
               "ToolTip": "C:\\Users\\gabriel.reis\\source\\Projetos-pessoais\\leetCode-codeWars\\Desafios\\Desafios\\CodeWars.cs",
               "RelativeToolTip": "Desafios\\CodeWars.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAA8wIMAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIoAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-22T14:06:58.814Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 57,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\gabriel.reis\\source\\Projetos-pessoais\\leetCode-codeWars\\Desafios\\Desafios\\Program.cs",
-              "RelativeDocumentMoniker": "Desafios\\Program.cs",
-              "ToolTip": "C:\\Users\\gabriel.reis\\source\\Projetos-pessoais\\leetCode-codeWars\\Desafios\\Desafios\\Program.cs",
-              "RelativeToolTip": "Desafios\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-22T14:06:58.843Z",
               "EditorCaption": ""
             }
           ]
