@@ -127,17 +127,61 @@ internal class CodeWars
         }
 
         char first = charCount.FirstOrDefault(x => x.Value == 0).Key;
-        var firstIndex = Array.IndexOf(charArr2,first);
+        var firstIndex = Array.IndexOf(charArr2, first);
 
         if (firstIndex == -1) return "";
 
-        return s.Substring(firstIndex,1);
+        return s.Substring(firstIndex, 1);
     }
 
-    public static int[,] Multiplication(int size)
+    public static string Stat(string s) // Statistics for ab Athletic Association
     {
-        int[,] matriz = new int[size, size];
+        if (s == "") return s;
 
-        return;
+        List<string[]> results = s.Split(",").Select(x => x.Trim().Split("|")).ToList();
+        List<int> resultsInSeconds = new List<int>();
+
+        for (int i = 0; i < results.Count; i++)
+        {
+            int count = 0;
+            for (int j = 0; j < results[i].Length; j++)
+            {
+                if (j == 0)
+                    count += int.Parse(results[i][j]) * 3600;
+                else if (j == 1)
+                    count += int.Parse(results[i][j]) * 60;
+                else count += int.Parse(results[i][j]);
+
+            }
+
+            resultsInSeconds.Add(count);
+        }
+
+        int rangeSeconds = resultsInSeconds.Max() - resultsInSeconds.Min();
+        string rangeFormatedTime = TimeSpan.FromSeconds(rangeSeconds).ToString(@"hh\|mm\|ss");
+        string range = $"Range: {rangeFormatedTime}";
+
+        double sum = resultsInSeconds.Average();
+        string avarageFormatedTime = TimeSpan.FromSeconds(sum).ToString(@"hh\|mm\|ss");
+        string average = $"Average: {avarageFormatedTime}";
+
+        List<int> sort = resultsInSeconds.OrderBy(n => n).ToList();
+        double medianInSeconds;
+
+        if (sort.Count() % 2 == 0)
+        {
+            int mid1 = sort.Count() / 2 - 1;
+            int mid2 = sort.Count() / 2;
+            medianInSeconds = (double)(sort[mid1] + sort[mid2]) / 2;
+        }
+        else
+        {
+            medianInSeconds = sort[sort.Count() / 2];
+        }
+
+        string medianFormatedTime = TimeSpan.FromSeconds(medianInSeconds).ToString(@"hh\|mm\|ss");
+        string median = $"Median: {medianFormatedTime}";
+
+        return $"{range} {average} {median}";
     }
 }
