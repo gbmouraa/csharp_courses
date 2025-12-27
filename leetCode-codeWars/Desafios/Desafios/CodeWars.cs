@@ -2,7 +2,6 @@
 
 internal class CodeWars
 {
-
     public static string PingIt(string str) // Simple Pig Latin
     {
         var splitedStrings = str.Split(" ");
@@ -110,7 +109,6 @@ internal class CodeWars
 
         return string.Join("", wordArr);
     }
-
     public static string FisrtNonRepeatingLetter(string s) // First non-repeating character
     {
         if (s.Length == 1) return s;
@@ -133,7 +131,6 @@ internal class CodeWars
 
         return s.Substring(firstIndex, 1);
     }
-
     public static string Stat(string s) // Statistics for ab Athletic Association
     {
         if (s == "") return s;
@@ -183,5 +180,29 @@ internal class CodeWars
         string median = $"Median: {medianFormatedTime}";
 
         return $"{range} {average} {median}";
+    }
+
+    public static int LongestSlideDown(int[][] pyramid) // Pyramid Slide Down - 4kyu // not finished yet
+    {
+        int currentIndex = 0;
+        int sum = pyramid[0][0];
+
+        for (int i = 1; i < pyramid.Length; i++)
+        {
+            List<int> currentArr = [.. pyramid[i]];
+
+            if (currentArr[currentIndex] > currentArr[currentIndex + 1])
+            {
+                sum += currentArr[currentIndex];
+                currentIndex = currentArr.IndexOf(currentArr[currentIndex]);
+            }
+            else
+            {
+                sum += currentArr[currentIndex + 1];
+                currentIndex = currentArr.IndexOf(currentArr[currentIndex + 1]);
+            }
+        }
+
+        return sum;
     }
 }
