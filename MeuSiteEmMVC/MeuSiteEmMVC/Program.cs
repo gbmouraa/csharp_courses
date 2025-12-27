@@ -1,3 +1,6 @@
+using MeuSiteEmMVC.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,6 +17,10 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+builder.Services.AddEntityFrameworkSqlServer()
+    .AddDbContext<BancoContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase")));
+
 app.UseHttpsRedirection();
 app.UseRouting();
 
@@ -23,7 +30,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}") // define a rota padrão ao abrir o site
+    pattern: "{controller=Home}/{action=Index}/{id?}") // define a rota padrï¿½o ao abrir o site
     .WithStaticAssets();
 
 
