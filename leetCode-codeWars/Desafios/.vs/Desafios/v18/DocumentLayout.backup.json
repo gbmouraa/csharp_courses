@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\gabriel.reis\\source\\Projetos-pessoais\\leetCode-codeWars\\Desafios\\",
+  "WorkspaceRootPath": "C:\\csharp-cousers\\csharp_courses\\leetCode-codeWars\\Desafios\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{37BCE5AB-A289-4AF2-9281-F3D01369D458}|Desafios\\Desafios.csproj|c:\\users\\gabriel.reis\\source\\projetos-pessoais\\leetcode-codewars\\desafios\\desafios\\codewars.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{37BCE5AB-A289-4AF2-9281-F3D01369D458}|Desafios\\Desafios.csproj|c:\\csharp-cousers\\csharp_courses\\leetcode-codewars\\desafios\\desafios\\codewars.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{37BCE5AB-A289-4AF2-9281-F3D01369D458}|Desafios\\Desafios.csproj|solutionrelative:desafios\\codewars.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37BCE5AB-A289-4AF2-9281-F3D01369D458}|Desafios\\Desafios.csproj|c:\\users\\gabriel.reis\\source\\projetos-pessoais\\leetcode-codewars\\desafios\\desafios\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{37BCE5AB-A289-4AF2-9281-F3D01369D458}|Desafios\\Desafios.csproj|c:\\csharp-cousers\\csharp_courses\\leetcode-codewars\\desafios\\desafios\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{37BCE5AB-A289-4AF2-9281-F3D01369D458}|Desafios\\Desafios.csproj|solutionrelative:desafios\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,8 +18,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 81,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
@@ -28,24 +32,24 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\gabriel.reis\\source\\Projetos-pessoais\\leetCode-codeWars\\Desafios\\Desafios\\Program.cs",
+              "DocumentMoniker": "C:\\csharp-cousers\\csharp_courses\\leetCode-codeWars\\Desafios\\Desafios\\Program.cs",
               "RelativeDocumentMoniker": "Desafios\\Program.cs",
-              "ToolTip": "C:\\Users\\gabriel.reis\\source\\Projetos-pessoais\\leetCode-codeWars\\Desafios\\Desafios\\Program.cs",
+              "ToolTip": "C:\\csharp-cousers\\csharp_courses\\leetCode-codeWars\\Desafios\\Desafios\\Program.cs",
               "RelativeToolTip": "Desafios\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAABSAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-26T14:12:38.895Z",
+              "WhenOpened": "2025-12-28T01:12:49.433Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "CodeWars.cs",
-              "DocumentMoniker": "C:\\Users\\gabriel.reis\\source\\Projetos-pessoais\\leetCode-codeWars\\Desafios\\Desafios\\CodeWars.cs",
+              "DocumentMoniker": "C:\\csharp-cousers\\csharp_courses\\leetCode-codeWars\\Desafios\\Desafios\\CodeWars.cs",
               "RelativeDocumentMoniker": "Desafios\\CodeWars.cs",
-              "ToolTip": "C:\\Users\\gabriel.reis\\source\\Projetos-pessoais\\leetCode-codeWars\\Desafios\\Desafios\\CodeWars.cs",
+              "ToolTip": "C:\\csharp-cousers\\csharp_courses\\leetCode-codeWars\\Desafios\\Desafios\\CodeWars.cs",
               "RelativeToolTip": "Desafios\\CodeWars.cs",
-              "ViewState": "AgIAAJYAAAAAAAAAAAAYwLUAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAcwNQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-22T14:06:58.814Z",
               "EditorCaption": ""

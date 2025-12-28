@@ -1,4 +1,5 @@
 using MeuSiteEmMVC.Data;
+using MeuSiteEmMVC.Repositorio;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews()
     .AddRazorRuntimeCompilation();
+
+builder.Services.AddEntityFrameworkSqlServer()
+    .AddDbContext<BancoContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase")));
+
+// injeção de depedencias -> toda vez que IContatoRepositorio for chamada é  chamado ContatoRepositorio;
+builder.Services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
 
 var app = builder.Build();
 
@@ -17,21 +25,12 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-builder.Services.AddEntityFrameworkSqlServer()
-    .AddDbContext<BancoContext>(options =>
-        options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase")));
-
 app.UseHttpsRedirection();
 app.UseRouting();
-
 app.UseAuthorization();
-
 app.MapStaticAssets();
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}") // define a rota padr�o ao abrir o site
     .WithStaticAssets();
-
-
 app.Run();

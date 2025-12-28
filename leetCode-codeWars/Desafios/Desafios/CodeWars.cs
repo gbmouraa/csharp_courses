@@ -185,13 +185,18 @@ internal class CodeWars
     public static int LongestSlideDown(int[][] pyramid) // Pyramid Slide Down - 4kyu // not finished yet
     {
         int currentIndex = 0;
+        int nextIndex = currentIndex + 1;
+
         int sum = pyramid[0][0];
 
         for (int i = 1; i < pyramid.Length; i++)
         {
             List<int> currentArr = [.. pyramid[i]];
+            List<int> nextArr = [.. pyramid[i + 1]];
 
-            if (currentArr[currentIndex] > currentArr[currentIndex + 1])
+            for(int j  = currentIndex; j;)
+
+            if (currentArr[currentIndex] > currentArr[nextIndex])
             {
                 sum += currentArr[currentIndex];
                 currentIndex = currentArr.IndexOf(currentArr[currentIndex]);

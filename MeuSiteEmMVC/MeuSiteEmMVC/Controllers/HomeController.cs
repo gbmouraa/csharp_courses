@@ -8,7 +8,7 @@ namespace MeuSiteEmMVC.Controllers
     {
         public IActionResult Index()
         {
-            // para consumir os dados do model home é preciso passa-los como parametro para a View 
+            // para consumir os dados de uma model é preciso passa-los para a view
             return View();
         }
 
