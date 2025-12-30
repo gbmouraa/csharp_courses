@@ -7,6 +7,7 @@ namespace MeuSiteEmMVC.Controllers;
 
 public class ContatoController : Controller
 {
+    // campo (guarda um objeto que implementa a interface)
     private readonly IContatoRepositorio _contatoRepositorio;
 
     public ContatoController(IContatoRepositorio contatoRepositorio)
@@ -25,9 +26,24 @@ public class ContatoController : Controller
         return View();
     }
 
-    public IActionResult Editar()
+    [HttpPost] // posso criar um método de mesmo nome porém o método HTTP precisa ser diferente
+    public IActionResult Criar(ContatoModel contato)
     {
-        return View();
+        _contatoRepositorio.Adicionar(contato);
+        return RedirectToAction("Index");
+    }
+
+    public IActionResult Editar(int id)
+    {
+        ContatoModel contato = _contatoRepositorio.ListarPorId(id);
+        return View(contato);
+    }
+
+    [HttpPost]
+    public IActionResult Editar(ContatoModel contato)
+    {
+        _contatoRepositorio.Atualizar(contato);
+        return RedirectToAction("Index");
     }
 
     public IActionResult Apagar()
@@ -35,10 +51,4 @@ public class ContatoController : Controller
         return View();
     }
 
-    [HttpPost] // posso criar um método de mesmo nome porém o método HTTP precisa ser diferente
-    public IActionResult Criar(ContatoModel contato)
-    {
-        _contatoRepositorio.Adicionar(contato);
-        return RedirectToAction("Index");
-    }
 }

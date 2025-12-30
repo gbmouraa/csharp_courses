@@ -5,7 +5,7 @@ namespace MeuSiteEmMVC.Repositorio
 {
     public class ContatoRepositorio : IContatoRepositorio
     {
-        // variavél para extrair os métodos de Banco context
+        // variavél para extrair os métodos de Banco de dados
         private readonly BancoContext _bancoContext;
 
         // injeção do contexto do banco
@@ -27,6 +27,27 @@ namespace MeuSiteEmMVC.Repositorio
             _bancoContext.SaveChanges();
 
             return contato;
+        }
+
+        public ContatoModel ListarPorId(int id)
+        {
+            return _bancoContext.Contatos.FirstOrDefault(x => x.Id == id);
+        }
+
+        public ContatoModel Atualizar(ContatoModel contato)
+        {
+            ContatoModel contatoDB = ListarPorId(contato.Id);
+
+            if (contatoDB == null) throw new System.Exception("Erro ao atualizar contato - Contato não encontrado na base de dados");
+
+            contatoDB.Nome = contato.Nome;
+            contatoDB.Email = contato.Email;
+            contatoDB.Telefone = contato.Telefone;
+
+            _bancoContext.Contatos.Update(contatoDB);
+            _bancoContext.SaveChanges();
+
+            return contatoDB;
         }
 
     }
