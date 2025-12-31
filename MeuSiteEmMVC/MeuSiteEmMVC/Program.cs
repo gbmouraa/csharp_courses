@@ -8,9 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews()
     .AddRazorRuntimeCompilation();
 
-builder.Services.AddEntityFrameworkSqlServer()
-    .AddDbContext<BancoContext>(options =>
-        options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase")));
+builder.Services.AddDbContext<BancoContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // injeção de depedencias -> toda vez que IContatoRepositorio for chamada é  chamado ContatoRepositorio;
 builder.Services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
