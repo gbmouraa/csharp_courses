@@ -9,7 +9,7 @@ namespace MeuSiteEmMVC.Repositorio
         private readonly BancoContext _bancoContext;
 
         // injeção do contexto do banco
-        public ContatoRepositorio(BancoContext bancoContext) 
+        public ContatoRepositorio(BancoContext bancoContext)
         {
             // a variavél privada recebe a instância de bancoContext
             _bancoContext = bancoContext;
@@ -48,6 +48,16 @@ namespace MeuSiteEmMVC.Repositorio
             _bancoContext.SaveChanges();
 
             return contatoDB;
+        }
+
+        public bool Apagar(int id)
+        {
+            ContatoModel contatoDB = ListarPorId(id);
+            if (contatoDB == null) throw new SystemException("Houve um erro ao tentar excluir o contato");
+
+            _bancoContext.Remove(contatoDB);
+            _bancoContext.SaveChanges();
+            return true;
         }
 
     }

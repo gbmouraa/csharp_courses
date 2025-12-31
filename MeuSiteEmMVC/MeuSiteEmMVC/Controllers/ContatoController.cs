@@ -29,8 +29,21 @@ public class ContatoController : Controller
     [HttpPost] // posso criar um método de mesmo nome porém o método HTTP precisa ser diferente
     public IActionResult Criar(ContatoModel contato)
     {
-        _contatoRepositorio.Adicionar(contato);
-        return RedirectToAction("Index");
+        // verifica se os dados são válidos de acordo com o data annotation na model
+        try
+        {
+            if (ModelState.IsValid)
+            {
+                _contatoRepositorio.Adicionar(contato);
+                TempData["MensagemSucesso"] = $"{contato.Nome} foi adicionado com sucesso a sua lista de contatos.";
+            }
+            return RedirectToAction("Index");
+        }
+        catch (Exception err)
+        {
+            TempData["MensagemErro"] = $"Erro criar contato: {err.Message}";
+            return RedirectToAction("Index");
+        }
     }
 
     public IActionResult Editar(int id)
@@ -42,13 +55,49 @@ public class ContatoController : Controller
     [HttpPost]
     public IActionResult Editar(ContatoModel contato)
     {
-        _contatoRepositorio.Atualizar(contato);
-        return RedirectToAction("Index");
+        try
+        {
+            if (ModelState.IsValid)
+            {
+                _contatoRepositorio.Atualizar(contato); // verificar se houve alterações
+                TempData["MensagemSucesso"] = $"O contato {contato.Nome} foi alterado com sucesso";
+                return RedirectToAction("Index");
+            }
+            return View(contato);
+        }
+        catch (Exception err)
+        {
+            TempData["MensagemErro"] = $"Erro ao editar contato";
+            return RedirectToAction("Index");
+        }
     }
 
-    public IActionResult Apagar()
+    public IActionResult Apagar(int id)
     {
-        return View();
+        ContatoModel contato = _contatoRepositorio.ListarPorId(id);
+        return View(contato);
+    }
+
+    public IActionResult ApagarConfirma(int id)
+    {
+        try
+        {
+            bool apagado = _contatoRepositorio.Apagar(id);
+            if (apagado)
+            {
+                TempData["MensagemSucesso"] = $"Contato removido com sucesso";
+            }
+            else
+            {
+                TempData["MensagemErro"] = $"Erro ao remover contato";
+            }
+            return RedirectToAction("Index");
+        }
+        catch (Exception err)
+        {
+            TempData["MensagemErro"] = $"Erro ao remover contato: {err.Message}";
+            return RedirectToAction("Index");
+        }
     }
 
 }

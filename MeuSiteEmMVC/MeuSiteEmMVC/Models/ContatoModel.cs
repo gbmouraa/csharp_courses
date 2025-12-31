@@ -1,19 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.ComponentModel.DataAnnotations;
 
 namespace MeuSiteEmMVC.Models
 {
     public class ContatoModel
     {
-        //public ContatoModel(string nome, string email, string telefone)
-        //{
-        //    Nome = nome;
-        //    Email = email;
-        //    Telefone = telefone;
-        //}
-
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "O campo nome é obrigatório")]
         public string Nome { get; set; }
+
+        [Required(ErrorMessage = "O campo email é obrigatório")]
+        [EmailAddress(ErrorMessage = "Insira um email válido")]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "O campo telefone é obrigatório")]
+        [Phone(ErrorMessage = "Insira um número válido")]
         public string Telefone { get; set; }
     }
 }
