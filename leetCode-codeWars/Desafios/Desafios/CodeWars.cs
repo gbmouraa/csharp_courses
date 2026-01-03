@@ -21,7 +21,6 @@ internal class CodeWars
 
         }
 
-
         return string.Join(" ", splitedStrings);
     }
     public static string[] dirReduc(String[] arr) // Directions Reduction - não passa  em todos testes ainda*
@@ -182,32 +181,28 @@ internal class CodeWars
         return $"{range} {average} {median}";
     }
 
-    public static int LongestSlideDown(int[][] pyramid) // Pyramid Slide Down - 4kyu // not finished yet
+    public static string ToUnderscore(int str)
     {
-        int currentIndex = 0;
-        int nextIndex = currentIndex + 1;
+        return str.ToString();
+    }
 
-        int sum = pyramid[0][0];
+    public static string ToUnderscore(string str)
+    {
+        string snakeCase = str[0].ToString().ToLower();
 
-        for (int i = 1; i < pyramid.Length; i++)
+        for (int i = 1; i < str.Length; i++)
         {
-            List<int> currentArr = [.. pyramid[i]];
-            List<int> nextArr = [.. pyramid[i + 1]];
-
-            for(int j  = currentIndex; j;)
-
-            if (currentArr[currentIndex] > currentArr[nextIndex])
+            if (((byte)str[i]) >= 65 && ((byte)str[i]) <= 90)
             {
-                sum += currentArr[currentIndex];
-                currentIndex = currentArr.IndexOf(currentArr[currentIndex]);
+                var current = "_" + str[i].ToString();
+                snakeCase += current;
             }
             else
             {
-                sum += currentArr[currentIndex + 1];
-                currentIndex = currentArr.IndexOf(currentArr[currentIndex + 1]);
+                snakeCase += str[i].ToString();
             }
         }
 
-        return sum;
+        return snakeCase.ToLower();
     }
 }
