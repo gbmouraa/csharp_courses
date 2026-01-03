@@ -22,7 +22,7 @@ namespace MeuSiteEmMVC.Repositorio
 
         public ContatoModel Adicionar(ContatoModel contato)
         {
-            // adiconar um contato ao banco de dados
+            // adicionar um contato ao banco de dados
             _bancoContext.Contatos.Add(contato);
             _bancoContext.SaveChanges();
 
