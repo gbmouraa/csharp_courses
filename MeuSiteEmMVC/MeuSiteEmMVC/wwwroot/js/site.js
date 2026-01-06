@@ -2,9 +2,8 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-
-$(document).ready(function () {
-    $('#table-contatos').DataTable({
+function createDataTable(id) {
+    $(id).DataTable({
         "ordering": true,
         "paging": true,
         "searching": true,
@@ -32,8 +31,10 @@ $(document).ready(function () {
             }
         }
     });
-});
+}
 
 $(document).ready(function () {
+    reateDataTable("#table-contatos")
+    createDataTable("#table-usuarios")
     $(".alert").delay(3000).fadeOut(1500);
-});
+})

@@ -10,4 +10,5 @@ public class BancoContext : DbContext
 
     // Tabela no banco - tipo - nome
     public DbSet<ContatoModel> Contatos { get; set; }
+    public DbSet<UsuarioModel> Usuarios { get; set; }
 }
