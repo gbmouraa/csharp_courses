@@ -13,6 +13,7 @@ builder.Services.AddDbContext<BancoContext>(options =>
 
 // injeção de depedencias -> toda vez que IContatoRepositorio for chamada é  chamado ContatoRepositorio;
 builder.Services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
+builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
 var app = builder.Build();
 
