@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <Compile Remove="Models\HomeModel.cs" />
+    <Compile Remove="Views\Usuario\ApagarUsuario.cs" />
   </ItemGroup>
 
   <ItemGroup>

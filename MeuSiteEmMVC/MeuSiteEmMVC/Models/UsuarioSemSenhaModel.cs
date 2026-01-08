@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MeuSiteEmMVC.Models;
 
-public class UsuarioModel
+public class UsuarioSemSenhaModel
 {
     public int Id { get; set; }
 
@@ -17,13 +17,7 @@ public class UsuarioModel
     [EmailAddress(ErrorMessage = "Insira um email válido")]
     public string Email { get; set; }
 
-    [Required(ErrorMessage = "O campo senha é obrigatório")]
-    public string Senha { get; set; }
-
     [Required(ErrorMessage = "Informe o perfil do usuário")]
     public PerfilEnum? Perfil { get; set; }
 
-    public DateTime DataCadastro { get; set; }
-
-    public DateTime? DataAtualizacao { get; set; }
 }

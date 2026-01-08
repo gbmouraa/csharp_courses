@@ -34,7 +34,7 @@ function createDataTable(id) {
 }
 
 $(document).ready(function () {
-    reateDataTable("#table-contatos")
+    createDataTable("#table-contatos")
     createDataTable("#table-usuarios")
     $(".alert").delay(3000).fadeOut(1500);
 })

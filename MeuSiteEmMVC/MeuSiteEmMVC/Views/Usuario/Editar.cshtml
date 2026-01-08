@@ -1,27 +1,29 @@
-﻿@using MeuSiteEmMVC.Enums
-@model UsuarioModel
+﻿@model UsuarioSemSenhaModel
+@using MeuSiteEmMVC.Enums
+
 @{
-    ViewData["Title"] = "Criar Usuario";
+    ViewData["Title"] = "Editar usuário";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Cadastrar usuario</h1>
+    <h1 class="display-4">Editar Usuário</h1>
 </div>
-<form asp-controller="Usuario" asp-action="Criar" method="post">
+<form asp-action="Editar" asp-controller="Usuario" method="post">
+    <input type="hidden" asp-for="Id" />
     <div class="mb-3">
         <label for="nome" class="form-label">Nome</label>
         <input type="text" asp-for="Nome" id="nome" class="form-control" placeholder="Digite o nome do usuario">
         @Html.ValidationMessageFor(x => x.Nome)
     </div>
     <div class="mb-3">
+        <label for="login" class="form-label">Login</label>
+        <input type="text" asp-for="Login" id="login" class="form-control" placeholder="Digite o login do contato">
+        @Html.ValidationMessageFor(x => x.Login)
+    </div>
+    <div class="mb-3">
         <label for="email" class="form-label">Email</label>
         <input type="text" asp-for="Email" id="email" class="form-control" placeholder="Digite o email do usuario">
         @Html.ValidationMessageFor(x => x.Email)
-    </div>
-    <div class="mb-3">
-        <label for="email" class="form-label">Login</label>
-        <input type="text" asp-for="Login" id="login" class="form-control" placeholder="Digite o login do usuario">
-        @Html.ValidationMessageFor(x => x.Login)
     </div>
     <div class="mb-3">
         <label for="perfil" class="form-label">Perfil</label>
@@ -32,13 +34,6 @@
         </select>
         @Html.ValidationMessageFor(x => x.Perfil);
     </div>
-    <div class="mb-3">
-        <label for="telefone" class="form-label">Senha</label>
-        <input type="password" asp-for="Senha" id="senha" class="form-control" placeholder="Digite a senha do usuario">
-        @Html.ValidationMessageFor(x => x.Senha)
-    </div>
-    <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
-    <a class="btn btn-secondary btn-block" role="button" asp-action="Index" asp-controller="Contato">Voltar</a>
+    <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+    <a class="btn btn-secondary btn-block" role="button" asp-action="Index" asp-controller="Usuario">Voltar</a>
 </form>
-
-
