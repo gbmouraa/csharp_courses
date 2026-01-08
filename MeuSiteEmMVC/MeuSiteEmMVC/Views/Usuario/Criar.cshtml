@@ -20,6 +20,7 @@
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">Login</label>
+<<<<<<< HEAD
         <input type="text" asp-for="Login" id="login" class="form-control" placeholder="Digite o login do usuario">
         @Html.ValidationMessageFor(x => x.Login)
     </div>
@@ -31,6 +32,10 @@
             <option value="@PerfilEnum.Padrao">Padrão</option>
         </select>
         @Html.ValidationMessageFor(x => x.Perfil);
+=======
+        <input type="text" asp-for="Login" id="email" class="form-control" placeholder="Digite o login do usuario">
+        @Html.ValidationMessageFor(x => x.Login)
+>>>>>>> 0fbf9d2c00a1f3dc0f40c0be2ba4f364a12a1e11
     </div>
     <div class="mb-3">
         <label for="telefone" class="form-label">Senha</label>
