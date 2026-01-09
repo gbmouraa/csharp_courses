@@ -34,7 +34,7 @@ namespace MeuSiteEmMVC.Repositorio
             return _bancoContext.Usuarios.FirstOrDefault(x => x.Id == id);
         }
 
-        public UsuarioSemSenhaModel Atualizar(UsuarioSemSenhaModel usuario)
+        public UsuarioModel Atualizar(UsuarioModel usuario)
         {
             UsuarioModel usuarioDB = ListarPorId(usuario.Id);
 

@@ -7,6 +7,6 @@ public interface IUsuarioRepositorio
     UsuarioModel Adicionar(UsuarioModel usuario);
     List<UsuarioModel> BuscarTodos();
     UsuarioModel ListarPorId(int id);
-    UsuarioSemSenhaModel Atualizar(UsuarioSemSenhaModel usuario);
+    UsuarioModel Atualizar(UsuarioModel usuario);
     bool Apagar(int id);
 }

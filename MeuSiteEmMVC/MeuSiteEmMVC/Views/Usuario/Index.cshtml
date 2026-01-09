@@ -29,6 +29,7 @@
                 <th scope="col">Nome</th>
                 <th scope="col">Login</th>
                 <th scope="col">Email</th>
+                <th scope="col">Perfil</th>
                 <th scope="col">Data de cadastro</th>
                 <th scope="col"></th>
             </tr>
@@ -43,15 +44,12 @@
                         <td>@usuario.Nome</td>
                         <td>@usuario.Login</td>
                         <td>@usuario.Email</td>
+                        <td>@(usuario.Perfil == MeuSiteEmMVC.Enums.PerfilEnum.Admin ? "Admin" : "Padrão")</td>
                         <td>@usuario.DataCadastro</td>
                         <td>
                             <div class="btn-group" role="group">
                                 <a role="button" asp-controller="Usuario" asp-route-id="@usuario.Id" asp-action="Editar" class="btn btn-primary text-light">Editar</a>
-<<<<<<< HEAD
                                 <a role="button" asp-controller="Usuario" asp-route-id="@usuario.Id" asp-action="ApagarUsuario" class="btn btn-danger text-light">Apagar</a>
-=======
-                                <a role="button" asp-controller="Usuario" asp-route-id="@usuario.Id" asp-action="Apagar" class="btn btn-danger text-light">Apagar</a>
->>>>>>> 0fbf9d2c00a1f3dc0f40c0be2ba4f364a12a1e11
                             </div>
                         </td>
                     </tr>

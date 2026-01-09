@@ -1,4 +1,4 @@
-﻿@model UsuarioSemSenhaModel
+﻿@model UsuarioModel
 @using MeuSiteEmMVC.Enums
 
 @{
@@ -32,7 +32,7 @@
             <option value="@PerfilEnum.Admin">Administrador</option>
             <option value="@PerfilEnum.Padrao">Padrão</option>
         </select>
-        @Html.ValidationMessageFor(x => x.Perfil);
+        @Html.ValidationMessageFor(x => x.Perfil)
     </div>
     <button type="submit" class="btn btn-primary btn-block">Alterar</button>
     <a class="btn btn-secondary btn-block" role="button" asp-action="Index" asp-controller="Usuario">Voltar</a>

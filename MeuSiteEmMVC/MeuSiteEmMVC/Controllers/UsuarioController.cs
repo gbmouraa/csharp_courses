@@ -19,15 +19,9 @@ public class UsuarioController : Controller
         return View(usuarios);
     }
 
-<<<<<<< HEAD
-
-    public IActionResult Criar()
-    {
-=======
     public IActionResult Criar()
     { // essa view usa a model nos valores dos campos
         // porém como aqui não é passado uma model os campos começam vazios
->>>>>>> 0fbf9d2c00a1f3dc0f40c0be2ba4f364a12a1e11
         return View();
     }
 
@@ -36,7 +30,7 @@ public class UsuarioController : Controller
     {
         try
         {
-<<<<<<< HEAD
+
             if (ModelState.IsValid)
             {
                 usuario = _usuarioRepositorio.Adicionar(usuario);
@@ -61,16 +55,35 @@ public class UsuarioController : Controller
 
 
     [HttpPost]
-    public IActionResult Editar(UsuarioSemSenhaModel usuario)
+    public IActionResult Editar(UsuarioModel usuario)
     {
-        if (ModelState.IsValid)
+        try
         {
-            _usuarioRepositorio.Atualizar(usuario);
-            TempData["MensagemSucesso"] = "Usuário Atualizado com Sucesso";
-            return RedirectToAction("Index");
-        }
+            ModelState.Remove("Senha");
 
-        return View(usuario);
+            if (ModelState.IsValid)
+            {
+                UsuarioModel usuarioAtualizado = new UsuarioModel()
+                {
+                    Id = usuario.Id,
+                    Nome = usuario.Nome,
+                    Login = usuario.Login,
+                    Email = usuario.Email,
+                    Perfil = usuario.Perfil
+                };
+
+                usuarioAtualizado = _usuarioRepositorio.Atualizar(usuario);
+                TempData["MensagemSucesso"] = "Usuário Atualizado com Sucesso";
+                return RedirectToAction("Index");
+            }
+
+            return View(usuario);
+        }
+        catch (Exception ex)
+        {
+            TempData["MensagemErro"] = "Não conseguimos atulizar o usuáiro";
+            return View("Index");
+        }
     }
 
     public IActionResult ApagarUsuario(int id)
@@ -97,21 +110,4 @@ public class UsuarioController : Controller
 
         return RedirectToAction("Index");
     }
-=======
-            if (ModelState.IsValid) // caso a model seja válida é adicionada e retorna para Index com msg de sucesso
-            {
-                _usuarioRepositorio.Adicionar(usuario);
-                TempData["MensagemSucesso"] = $"O usuário {usuario.Nome} foi criado com sucesso";
-                return RedirectToAction("Index");
-            }
-
-            return View(usuario); // caso n passe na validação retorna a view Criar com os dados utuais da model
-        }
-        catch (Exception ex)
-        {
-            TempData["MensagemError"] = "Erro ao cadastrar usuário";
-            return RedirectToAction("Index");
-        }
-    }
->>>>>>> 0fbf9d2c00a1f3dc0f40c0be2ba4f364a12a1e11
 }

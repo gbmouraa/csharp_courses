@@ -31,6 +31,6 @@ app.UseAuthorization();
 app.MapStaticAssets();
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}") // define a rota padrão ao abrir o site
+    pattern: "{controller=Login}/{action=Index}/{id?}") // define a rota padrão ao abrir o site
     .WithStaticAssets();
 app.Run();
