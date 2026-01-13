@@ -1,6 +1,6 @@
 ﻿using Desafios;
 using System.IO;
 
-Console.WriteLine(CodeWars.ToUnderscore(1));
-Console.WriteLine(CodeWars.ToUnderscore("TestControllerBase"));
-Console.WriteLine(CodeWars.ToUnderscore("ThisIsBeautifulDay"));
+Console.WriteLine(CodeWars.dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]));
+Console.WriteLine(CodeWars.dirReduc(["NORTH", "WEST", "SOUTH", "EAST"]));
+

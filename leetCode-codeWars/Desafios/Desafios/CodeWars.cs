@@ -1,4 +1,6 @@
-﻿namespace Desafios;
+﻿using System.Reflection.PortableExecutable;
+
+namespace Desafios;
 
 internal class CodeWars
 {
@@ -23,39 +25,45 @@ internal class CodeWars
 
         return string.Join(" ", splitedStrings);
     }
-    public static string[] dirReduc(String[] arr) // Directions Reduction - não passa  em todos testes ainda*
+    public static string[] dirReduc(String[] arr) // Directions Reduction - CodeWars
     {
+        List<string> directions = new List<string> { arr[0] };
 
-        Dictionary<string, int> y = new Dictionary<string, int> { { "NORTH", 0 }, { "SOUTH", 0 } };
-        Dictionary<string, int> x = new Dictionary<string, int> { { "WEST", 0 }, { "EAST", 0 } };
-
-        foreach (string s in arr)
+        for (int i = 1; i < arr.Length; i++)
         {
-            if (s == "NORTH" || s == "SOUTH") y[s]++;
-            else x[s]++;
+            if (directions.Count == 0 || directions.Last() == arr[i])
+            {
+                directions.Add(arr[i]);
+            }
+            else
+            {
+                string lastDir = directions.Last();
+                int lastDirIdx = directions.Count - 1;
+
+                if (arr[i] == "SOUTH" && lastDir == "NORTH")
+                {
+                    directions.RemoveAt(lastDirIdx);
+                }
+                else if (arr[i] == "NORTH" && lastDir == "SOUTH")
+                {
+                    directions.RemoveAt(lastDirIdx);
+                }
+                else if (arr[i] == "WEST" && lastDir == "EAST")
+                {
+                    directions.RemoveAt(lastDirIdx);
+                }
+                else if (arr[i] == "EAST" && lastDir == "WEST")
+                {
+                    directions.RemoveAt(lastDirIdx);
+                }
+                else
+                {
+                    directions.Add(arr[i]);
+                }
+            }
         }
 
-        if (y["NORTH"] == y["SOUTH"] && x["WEST"] == x["EAST"]) return arr;
-
-        Dictionary<string, int> filteredXAndY = new Dictionary<string, int>();
-
-        if (y["NORTH"] != y["SOUTH"])
-        {
-            Dictionary<string, int> filteredY = new Dictionary<string, int>();
-            var dir = y.MaxBy(y => y.Value).Key;
-            filteredXAndY.Add(dir, y[dir]);
-        }
-
-        if (x["WEST"] != x["EAST"])
-        {
-            Dictionary<string, int> filteredX = new Dictionary<string, int>();
-            var dir = x.MaxBy(x => x.Value).Key;
-            filteredXAndY.Add(dir, x[dir]);
-        }
-
-        if (filteredXAndY.Count == 1) return [filteredXAndY.ElementAt(0).Key];
-
-        return [filteredXAndY.MaxBy(x => x.Value).Key];
+        return directions.ToArray();
     }
     public static string GetReadableTime(int seconds)
     {
