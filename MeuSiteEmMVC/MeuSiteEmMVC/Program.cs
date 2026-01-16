@@ -1,4 +1,5 @@
 using MeuSiteEmMVC.Data;
+using MeuSiteEmMVC.Helpers;
 using MeuSiteEmMVC.Repositorio;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,9 +12,18 @@ builder.Services.AddControllersWithViews()
 builder.Services.AddDbContext<BancoContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
 // injeção de depedencias -> toda vez que IContatoRepositorio for chamada é  chamado ContatoRepositorio;
 builder.Services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+builder.Services.AddScoped<ISessao, Sessao>();
+
+builder.Services.AddSession(o =>
+{
+    o.Cookie.HttpOnly = true;
+    o.Cookie.IsEssential = true;
+});
 
 var app = builder.Build();
 
@@ -25,6 +35,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseSession(); 
 app.UseHttpsRedirection();
 app.UseRouting();
 app.UseAuthorization();

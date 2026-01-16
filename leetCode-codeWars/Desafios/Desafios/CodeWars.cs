@@ -188,12 +188,10 @@ internal class CodeWars
 
         return $"{range} {average} {median}";
     }
-
     public static string ToUnderscore(int str)
     {
         return str.ToString();
     }
-
     public static string ToUnderscore(string str)
     {
         string snakeCase = str[0].ToString().ToLower();
@@ -213,4 +211,5 @@ internal class CodeWars
 
         return snakeCase.ToLower();
     }
+
 }

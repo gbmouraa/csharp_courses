@@ -20,6 +20,11 @@ namespace MeuSiteEmMVC.Repositorio
             return _bancoContext.Usuarios.ToList();
         }
 
+        public UsuarioModel BuscarPorLogin(string login)
+        {
+            return _bancoContext.Usuarios.FirstOrDefault(x => x.Login.ToLower() == login.ToLower());
+        }
+
         public UsuarioModel Adicionar(UsuarioModel usuario)
         {
             usuario.DataCadastro = DateTime.Now;
