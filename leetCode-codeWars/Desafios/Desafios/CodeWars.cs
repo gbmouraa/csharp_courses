@@ -212,4 +212,31 @@ internal class CodeWars
         return snakeCase.ToLower();
     }
 
+    public static int[] MovingZeroes(int[] arr)
+    {
+        List<int> result = new List<int>();
+        int zeroesCount = 0;
+
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] != 0)
+            {
+                result.Add(arr[i]);
+            }else
+            {
+                zeroesCount++;
+            }
+        }
+
+        if (zeroesCount > 0)
+        {
+            for (int i = 0; i < zeroesCount; i++)
+            {
+                result.Add(0);
+            }
+        }
+
+        return result.ToArray();
+    }
+
 }
