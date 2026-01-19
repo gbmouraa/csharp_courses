@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MeuSiteEmMVC.Data;
+using MeuSiteEmMVC.Filters;
 using MeuSiteEmMVC.Models;
-using MeuSiteEmMVC.Data;
 using MeuSiteEmMVC.Repositorio;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MeuSiteEmMVC.Controllers;
 
+[FiltroLogado]
 public class ContatoController : Controller
 {
     // campo (guarda um objeto que implementa a interface)

@@ -1,9 +1,11 @@
 using System.Diagnostics;
+using MeuSiteEmMVC.Filters;
 using MeuSiteEmMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MeuSiteEmMVC.Controllers
 {
+    [FiltroLogado]
     public class HomeController : Controller
     {
         public IActionResult Index()
