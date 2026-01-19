@@ -36,6 +36,8 @@ namespace MeuSiteEmMVC.Controllers
                 {
                     UsuarioModel usuario = _usuarioRepositorio.BuscarPorLogin(loginData.Login);
 
+                    // adicionar erros caso login ou senha errados
+
                     if (usuario != null)
                     {
                         if (usuario.ValidarSenha(loginData.Senha))

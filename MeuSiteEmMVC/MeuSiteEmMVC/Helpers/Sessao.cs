@@ -13,7 +13,7 @@ namespace MeuSiteEmMVC.Helpers
             _httpContext = httpContext;
         }
 
-        public  UsuarioModel? BuscarSessaoDoUsuario()
+        public  UsuarioModel BuscarSessaoDoUsuario()
         {
             string sessaoUsuario = _httpContext.HttpContext.Session.GetString("sessaoUsuarioLogado");
 
@@ -28,7 +28,7 @@ namespace MeuSiteEmMVC.Helpers
             // transforma em json
             string usuarioJson = JsonConvert.SerializeObject(usuario);
 
-            // salva na session do sevidor, utiliza cookies
+            // salva na session do servidor, utiliza cookies
             _httpContext.HttpContext.Session.SetString("sessaoUsuarioLogado",usuarioJson);
         }
 

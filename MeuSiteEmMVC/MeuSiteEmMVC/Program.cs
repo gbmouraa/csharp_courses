@@ -14,7 +14,7 @@ builder.Services.AddDbContext<BancoContext>(options =>
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-// injeção de depedencias -> toda vez que IContatoRepositorio for chamada é  chamado ContatoRepositorio;
+// injeção de depedencias -> toda vez que IContatoRepositorio for chamada na criação de uma classe é  chamado ContatoRepositorio;
 builder.Services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 builder.Services.AddScoped<ISessao, Sessao>();

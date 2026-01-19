@@ -30,7 +30,6 @@ public class UsuarioController : Controller
     {
         try
         {
-
             if (ModelState.IsValid)
             {
                 usuario = _usuarioRepositorio.Adicionar(usuario);
