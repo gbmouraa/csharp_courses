@@ -1,4 +1,5 @@
 ﻿using MeuSiteEmMVC.Enums;
+using MeuSiteEmMVC.Helpers;
 using System.ComponentModel.DataAnnotations;
 
 namespace MeuSiteEmMVC.Models;
@@ -29,6 +30,11 @@ public class UsuarioModel
 
     public bool ValidarSenha(string senha)
     {
-        return Senha == senha;
+        return Senha == senha.GerarHash();
+    }
+
+    public void SetSenhaHash()
+    {
+        Senha = Senha.GerarHash();
     }
 }
