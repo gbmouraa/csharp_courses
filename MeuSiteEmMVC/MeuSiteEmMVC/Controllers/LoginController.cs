@@ -69,5 +69,39 @@ namespace MeuSiteEmMVC.Controllers
 
             return RedirectToAction("Index","Login");
         }
+
+        public ActionResult RedefinirSenha()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult RedefinirSenha(RedefinirSenhaModel model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    UsuarioModel usuario = _usuarioRepositorio.BUscarPorEmailELogin(model.Login,model.Email);
+
+
+                    if (usuario != null)
+                    {
+                        TempData["MensagemSucesso"] = $"Envaimos um link para redefinição de senha para o seu email";
+                        return RedirectToAction("Index", "Login");
+                    }
+
+                    TempData["MensagemErro"] = $"Parece que os dados estão incorretos, verifique e tente novamente";
+                }
+
+                return View("Index");
+
+            }
+            catch (Exception ex)
+            {
+                TempData["MensagemErro"] = $"Erro ao redefinir senha: {ex}";
+                return RedirectToAction("Index");
+            }
+        }
     }
 }
