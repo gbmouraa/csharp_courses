@@ -9,17 +9,19 @@ namespace MeuSiteEmMVC.Controllers
     {
         private readonly IUsuarioRepositorio _usuarioRepositorio;
         private readonly ISessao _sesssao;
+        private readonly IEmail _email;
 
-        public LoginController(IUsuarioRepositorio usuarioRepositorio, ISessao sessao)
+        public LoginController(IUsuarioRepositorio usuarioRepositorio, ISessao sessao, IEmail email)
         {
             _usuarioRepositorio = usuarioRepositorio;
             _sesssao = sessao;
+            _email = email;
         }
 
         public IActionResult Index()
         {
             //  se usuário estiver logado redireciona para home
-            if(_sesssao.BuscarSessaoDoUsuario() != null)
+            if (_sesssao.BuscarSessaoDoUsuario() != null)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -67,7 +69,7 @@ namespace MeuSiteEmMVC.Controllers
         {
             _sesssao.RemoverSessaoDoUsuario();
 
-            return RedirectToAction("Index","Login");
+            return RedirectToAction("Index", "Login");
         }
 
         public ActionResult RedefinirSenha()
@@ -82,12 +84,26 @@ namespace MeuSiteEmMVC.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    UsuarioModel usuario = _usuarioRepositorio.BUscarPorEmailELogin(model.Login,model.Email);
+                    UsuarioModel usuario = _usuarioRepositorio.BuscarPorEmailELogin(model.Login, model.Email);
 
 
                     if (usuario != null)
                     {
-                        TempData["MensagemSucesso"] = $"Envaimos um link para redefinição de senha para o seu email";
+                        string novaSenha = usuario.GerarNovaSenha();
+                        string mensagem = $"Sua nova senha é: {novaSenha}";
+
+                        bool emailEnviado = _email.Enviar(usuario.Email, "Sistema de Contatos - Nova Senha", mensagem);
+
+                        if (emailEnviado)
+                        {
+                            _usuarioRepositorio.Atualizar(usuario);
+                            TempData["MensagemSucesso"] = $"Enviamos um link para redefinição de senha para o seu email";
+                        }
+                        else
+                        {
+                            TempData["MensagemErro"] = $"Não conseguimos enviar o e-mail, tente novamente";
+                        }
+
                         return RedirectToAction("Index", "Login");
                     }
 

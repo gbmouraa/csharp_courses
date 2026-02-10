@@ -5,7 +5,7 @@ namespace MeuSiteEmMVC.Repositorio;
 public interface IUsuarioRepositorio
 {
     UsuarioModel Adicionar(UsuarioModel usuario);
-    UsuarioModel BUscarPorEmailELogin(string login, string email);
+    UsuarioModel BuscarPorEmailELogin(string login, string email);
     UsuarioModel BuscarPorLogin(string login);
     List<UsuarioModel> BuscarTodos();
     UsuarioModel ListarPorId(int id);
