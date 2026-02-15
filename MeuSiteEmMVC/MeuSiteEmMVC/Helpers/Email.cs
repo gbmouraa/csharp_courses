@@ -1,45 +1,47 @@
-﻿using System.Net;
-using System.Net.Mail;
+using MailKit.Net.Smtp;
+using MailKit.Security;
+using MimeKit;
 
 namespace MeuSiteEmMVC.Helpers
 {
     public class Email : IEmail
     {
-        private readonly IConfiguration _configuration;
+        private readonly IConfiguration _config;
 
         public Email(IConfiguration configuration)
         {
-            _configuration = configuration;
+            _config = configuration;
         }
 
-        public bool Enviar(string email, string assunto, string mensagem)
+        public async Task<bool> Enviar(string emailDestinatario, string assunto, string mensagem)
         {
             try
             {
-                string host = _configuration.GetValue<string>("SMTP:Host");
-                string nome = _configuration.GetValue<string>("SMTP:Nome");
-                string username = _configuration.GetValue<string>("SMTP:Username");
-                string senha = _configuration.GetValue<string>("SMTP:Senha");
-                int porta = _configuration.GetValue<int>("SMTP:Porta");
+                var email = new MimeMessage();
 
-                MailMessage mail = new MailMessage()
+                email.From.Add(MailboxAddress.Parse(_config["Email:Name"]));
+                email.To.Add(MailboxAddress.Parse(emailDestinatario));
+                email.Subject = assunto;
+
+                email.Body = new TextPart("html")
                 {
-                    From = new MailAddress(username, nome)
+                    Text = mensagem
                 };
 
-                mail.To.Add(email);
-                mail.Subject = assunto;
-                mail.Body = mensagem;
-                mail.IsBodyHtml = true;
-                mail.Priority = MailPriority.High;
+                using var smtp = new SmtpClient();
+                await smtp.ConnectAsync(
+                    _config["Email:SmtpHost"],
+                    587,
+                    SecureSocketOptions.StartTls);
 
-                using (SmtpClient smtp = new SmtpClient(host, porta))
-                {
-                    smtp.Credentials = new NetworkCredential(username, senha);
-                    smtp.EnableSsl = true;
-                    smtp.Send(mail);
-                    return true;
-                }
+                await smtp.AuthenticateAsync(
+                    _config["Email:SmtpUser"],
+                    _config["Email:SmtpPass"]);
+
+                await smtp.SendAsync(email);
+                await smtp.DisconnectAsync(true);
+
+                return true;
             }
             catch (Exception ex)
             {

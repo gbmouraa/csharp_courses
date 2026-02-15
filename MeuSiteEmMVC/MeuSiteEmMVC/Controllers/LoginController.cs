@@ -78,7 +78,7 @@ namespace MeuSiteEmMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult RedefinirSenha(RedefinirSenhaModel model)
+        public async Task<ActionResult> RedefinirSenha(RedefinirSenhaModel model)
         {
             try
             {
@@ -92,7 +92,7 @@ namespace MeuSiteEmMVC.Controllers
                         string novaSenha = usuario.GerarNovaSenha();
                         string mensagem = $"Sua nova senha é: {novaSenha}";
 
-                        bool emailEnviado = _email.Enviar(usuario.Email, "Sistema de Contatos - Nova Senha", mensagem);
+                        var  emailEnviado = await _email.Enviar(usuario.Email, "Sistema de Contatos - Nova Senha", mensagem);
 
                         if (emailEnviado)
                         {

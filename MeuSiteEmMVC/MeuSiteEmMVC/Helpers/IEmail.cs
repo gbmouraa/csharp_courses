@@ -2,6 +2,6 @@
 {
     public interface IEmail
     {
-        bool Enviar(string email, string assunto, string mensagem);
+        Task<bool> Enviar(string email, string assunto, string mensagem);
     }
 }

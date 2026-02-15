@@ -258,3 +258,6 @@ bower_components/
 
 # Ignore sensitive data in appsettings.json  
 MeuSiteEmMVC/appsettings.json  
+
+# Ignore all .appsettings files
+.appsettings
