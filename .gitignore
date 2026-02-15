@@ -42,3 +42,6 @@ TestResult.xml
 # Windows Store app package files
 AppPackages/
 BundleArtifacts/
+
+MeuSiteEmMVC/MeuSiteEmMVC/appsettings.json
+leetCode-codeWars/Desafios/Desafios/obj

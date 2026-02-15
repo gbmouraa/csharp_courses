@@ -256,8 +256,8 @@ bower_components/
 # Local History for Visual Studio
 .localhistory/
 
-# Ignore sensitive data in appsettings.json  
-MeuSiteEmMVC/appsettings.json  
+# Ignore appsettings.json with sensitive data
+appsettings.json
 
 # Ignore all .appsettings files
 .appsettings
