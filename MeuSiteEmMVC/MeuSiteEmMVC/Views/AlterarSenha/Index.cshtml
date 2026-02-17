@@ -1,0 +1,29 @@
+﻿@model AlterarSenhaViewModel;
+@{
+    ViewData["Title"] = "Alterar Senha";
+}
+
+<form asp-controller="AlterarSenha" asp-action="AlterarSenha" method="post">
+    <div class="form-group">
+        <label for="senha-Atual">Senha Atual</label>
+        <input type="text" asp-for="SenhaAtual" class="form-control" id="senhaAtual" aria-describedby="emailHelp">
+        @Html.ValidationMessageFor(x => x.SenhaAtual)
+    </div>
+    <div class="form-group mt-3">
+        <label for="novaSenha">Nova Senha</label>
+        <input type="text" asp-for="NovaSenha" class="form-control" id="novaSenha">
+        @Html.ValidationMessageFor(x => x.NovaSenha)
+    </div>
+    <div class="form-group mt-3">
+        <label for="confirmarNovaSenha">Confirmar Nova Senha</label>
+        <input type="text" asp-for="ConfirmarNovaSenha" class="form-control" id="ConfirmarNovaSenha">
+        @Html.ValidationMessageFor(x => x.ConfirmarNovaSenha)
+    </div>
+    <div class="d-flex column-gap-4 align-items-center">
+        <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="Home">Voltar</a>
+        <button type="submit" class="btn btn-primary my-3 d-block">Alterar Senha</button>
+    </div>
+</form>
+
+
+
