@@ -1,4 +1,5 @@
 ﻿using MeuSiteEmMVC.Data;
+using MeuSiteEmMVC.Helpers;
 using MeuSiteEmMVC.Models;
 
 namespace MeuSiteEmMVC.Repositorio
@@ -25,7 +26,7 @@ namespace MeuSiteEmMVC.Repositorio
             return _bancoContext.Usuarios.FirstOrDefault(x => x.Login.ToLower() == login.ToLower());
         }
 
-        public UsuarioModel BuscarPorEmailELogin(string login, string email)
+        public UsuarioModel? BuscarPorEmailELogin(string login, string email)
         {
             return _bancoContext.Usuarios.FirstOrDefault(x => x.Login == login && x.Email == email);
         }
@@ -61,6 +62,26 @@ namespace MeuSiteEmMVC.Repositorio
             _bancoContext.SaveChanges();
 
             return usuarioDB;
+        }
+
+        public void AlterarSenha(AlterarSenhaViewModel model)
+        {
+            UsuarioModel usuarioDB = ListarPorId(model.Id);
+
+            if(usuarioDB == null)
+            {
+                throw new SystemException("Usuario não encontrado");
+            }
+            if (!usuarioDB.ValidarSenha(model.SenhaAtual))
+            {
+                throw new SystemException("Senha atual está incorreta");
+            }
+
+            usuarioDB.SetSenhaHash(model.NovaSenha);
+            usuarioDB.DataAtualizacao = DateTime.Now;
+
+            _bancoContext.Update(usuarioDB);
+            _bancoContext.SaveChanges();       
         }
 
         public bool Apagar(int id)
