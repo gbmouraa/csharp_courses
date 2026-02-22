@@ -8,7 +8,7 @@ namespace MeuSiteEmMVC.Controllers
     [FiltroLogado]
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public ActionResult Index()
         {
             // para consumir os dados de uma model é preciso passa-los para a view
             return View();

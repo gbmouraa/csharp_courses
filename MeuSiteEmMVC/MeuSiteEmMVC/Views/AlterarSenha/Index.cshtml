@@ -17,17 +17,17 @@
 
 <form asp-controller="AlterarSenha" asp-action="Alterar" method="post">
     <div class="form-group">
-        <label for="senha-Atual">Senha Atual</label>
-        <input type="password" asp-for="SenhaAtual" class="form-control" id="senhaAtual" aria-describedby="emailHelp">
+        <label for="SenhaAtual">Senha Atual</label>
+        <input type="password" asp-for="SenhaAtual" class="form-control" id="SenhaAtual">
         @Html.ValidationMessageFor(x => x.SenhaAtual)
     </div>
     <div class="form-group mt-3">
-        <label for="novaSenha">Nova Senha</label>
+        <label for="NovaSenha">Nova Senha</label>
         <input type="password" asp-for="NovaSenha" class="form-control" id="novaSenha">
         @Html.ValidationMessageFor(x => x.NovaSenha)
     </div>
     <div class="form-group mt-3">
-        <label for="confirmarNovaSenha">Confirmar Nova Senha</label>
+        <label for="ConfirmarNovaSenha">Confirmar Nova Senha</label>
         <input type="password" asp-for="ConfirmarNovaSenha" class="form-control" id="ConfirmarNovaSenha">
         @Html.ValidationMessageFor(x => x.ConfirmarNovaSenha)
     </div>

@@ -25,24 +25,25 @@ namespace MeuSiteEmMVC.Controllers
         public ActionResult Alterar(AlterarSenhaViewModel model)
         {
             if (!ModelState.IsValid) return View("Index", model);
-
+           
             try
             {
                 UsuarioModel usuarioLogado = _sessao.BuscarSessaoDoUsuario();
-                model.Id = usuarioLogado.Id;
 
                 if (usuarioLogado != null)
                 {
+                    model.Id = usuarioLogado.Id;
                     _usuarioRepositorio.AlterarSenha(model);
                     TempData["Sucesso"] = "Senha alterada com sucesso";
-                    return View("Index","Home");
+                    return RedirectToAction("Index");
                 }
+
                 return View("Index", model);
             }
             catch (Exception ex)
             {
-                TempData["Erro"] = "Não foi possivel alterar sua senha no momento, tente novamente mais tarde";
-                return RedirectToAction("Index");
+                TempData["Erro"] = $"Erro: {ex}";
+                return View("Index", model);
             }
         }
     }
