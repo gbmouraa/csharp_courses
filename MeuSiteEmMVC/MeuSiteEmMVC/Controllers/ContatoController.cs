@@ -1,5 +1,6 @@
 ﻿using MeuSiteEmMVC.Data;
 using MeuSiteEmMVC.Filters;
+using MeuSiteEmMVC.Helpers;
 using MeuSiteEmMVC.Models;
 using MeuSiteEmMVC.Repositorio;
 using Microsoft.AspNetCore.Mvc;
@@ -11,15 +12,18 @@ public class ContatoController : Controller
 {
     // campo (guarda um objeto que implementa a interface)
     private readonly IContatoRepositorio _contatoRepositorio;
+    private readonly ISessao _sessao;
 
-    public ContatoController(IContatoRepositorio contatoRepositorio)
+    public ContatoController(IContatoRepositorio contatoRepositorio, ISessao sessao)
     {
         _contatoRepositorio = contatoRepositorio;
+        _sessao = sessao;
     }
 
     public IActionResult Index()
     {
-        List<ContatoModel> contatos = _contatoRepositorio.BuscarTodos();
+        UsuarioModel usuarioLogado = _sessao.BuscarSessaoDoUsuario();
+        List<ContatoModel> contatos = _contatoRepositorio.BuscarTodos(usuarioLogado.Id);
         return View(contatos);
     }
 
@@ -36,6 +40,8 @@ public class ContatoController : Controller
         {
             if (ModelState.IsValid)
             {
+                UsuarioModel usuarioLogado = _sessao.BuscarSessaoDoUsuario();
+                contato.UsuarioId = usuarioLogado.Id;
                 _contatoRepositorio.Adicionar(contato);
                 TempData["MensagemSucesso"] = $"{contato.Nome} foi adicionado com sucesso a sua lista de contatos.";
             }
@@ -61,6 +67,8 @@ public class ContatoController : Controller
         {
             if (ModelState.IsValid)
             {
+                UsuarioModel usuarioLogado = _sessao.BuscarSessaoDoUsuario();
+                contato.UsuarioId = usuarioLogado.Id;
                 _contatoRepositorio.Atualizar(contato); // verificar se houve alterações
                 TempData["MensagemSucesso"] = $"O contato {contato.Nome} foi alterado com sucesso";
                 return RedirectToAction("Index");

@@ -17,5 +17,7 @@ namespace MeuSiteEmMVC.Models
         [Required(ErrorMessage = "O campo telefone é obrigatório")]
         [Phone(ErrorMessage = "Insira um número válido")]
         public string Telefone { get; set; }
+
+        public int? UsuarioId { get; set; }
     }
 }

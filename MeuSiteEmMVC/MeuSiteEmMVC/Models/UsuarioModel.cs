@@ -26,6 +26,8 @@ public class UsuarioModel
 
     public DateTime DataCadastro { get; set; }
 
+    List<ContatoModel>? Contatos { get; set; }
+
     public DateTime? DataAtualizacao { get; set; }
 
     public bool ValidarSenha(string senha)
